@@ -1,0 +1,413 @@
+{
+	"info": {
+		"_postman_id": "9ff78b7a-e61f-4ef5-9c93-9b6cb59a883b",
+		"name": "Assignment 4",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n``` json\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request Replace it with your API endpoint to customize this collection.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37529607"
+	},
+	"item": [
+		{
+			"name": "Path Module",
+			"item": [
+				{
+					"name": "Task 1.1 / Path-info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"file_path\": \"E:/DEV/Route/Node js/Assignment 4/index.js\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/path-info",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"path-info"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Task 1.2 / Path-Check",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Absolute_path\": \"./data/file.txt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/path-check",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"path-check"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			],
+			"description": "this Folder Includes EndPoints For Question 1 in Assignment which is about Path Module 4 for Backend Diploma From Route Academy"
+		},
+		{
+			"name": "Events Module",
+			"item": [
+				{
+					"name": "Task 2.1 / Create File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fileName\" : \"Test.txt\",\r\n    \"content\" : \"Hello World\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/create-file",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"create-file"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task 2.2 / Delete File",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fileName\" : \"Test.txt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/delete-file",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"delete-file"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "this Folder Includes EndPoints For Question 2 in Assignment which is about Events Module 4 for Backend Diploma From Route Academy"
+		},
+		{
+			"name": "OS Module",
+			"item": [
+				{
+					"name": "Task 3 System Info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/system-info",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"system-info"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "this Folder Includes EndPoints For Question 3 in Assignment which is about OS Module 4 for Backend Diploma From Route Academy"
+		},
+		{
+			"name": "File System Module",
+			"item": [
+				{
+					"name": "Task 4.2.1 /Append-Async",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fileName\": \"async.txt\",\r\n    \"content\": \"this is written asynchronously\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/append-async",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"append-async"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task 4.2.2 /Read-Async",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fileName\": \"async.txt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/read-async",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"read-async"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "this Folder Includes EndPoints For Question 4 in Assignment which is about File System Module 4 for Backend Diploma From Route Academy"
+		},
+		{
+			"name": "Streams",
+			"item": [
+				{
+					"name": "Task 5.1 /Stream-File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fileName\" : \"stream.txt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/stream-file",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"stream-file"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task 5.2 /Copy-File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sourceFile\" : \"stream.txt\",\r\n    \"destinationFile\": \"destination.txt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/copy-file",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"copy-file"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task 5.3 /Compress-File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fileName\" : \"destination.txt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/compress-file",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"compress-file"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "this Folder Includes EndPoints For Question 1 in Assignment which is about File System Module 4 for Backend Diploma From Route Academy"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000"
+		}
+	]
+}
